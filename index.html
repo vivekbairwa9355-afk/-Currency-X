@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CurrencyX – Convert 190+ Country Currencies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="top">
+  <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
+  <div class="container nav">
+    <div class="logo">💱 Currency<span>X</span></div>
+    <nav>
+      <a href="#converter">Converter</a><a href="#how">How it works</a>
+      <a href="#facts">Facts</a><a href="#team">Team</a>
+    </nav>
+  </div>
+  <div class="container hero">
+    <span class="badge">🌐 Live exchange rates</span>
+    <h1>Convert Money Between <span class="grad">190+ Countries</span> Instantly</h1>
+    <p>Pick any country, see its flag and currency, and get accurate conversion in one click.</p>
+    <a href="#converter" class="btn btn-gold">Start Converting ↓</a>
+    <div class="stats">
+      <div class="stat"><b data-count="198">0</b><span>Countries supported</span></div>
+      <div class="stat"><b data-count="146">0</b><span>Unique currencies</span></div>
+      <div class="stat"><b>KWD</b><span>Highest value per unit</span></div>
+      <div class="stat"><b>USD</b><span>Most traded currency</span></div>
+      <div class="stat"><b>Free</b><span>No sign-up needed</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker"><div class="ticker-track" id="ticker"></div></div>
+
+<main>
+  <!-- Converter box -->
+  <section class="container converter-wrap" id="converter">
+    <div class="box">
+      <h2>💱 Currency Converter</h2>
+      <p class="sub">Choose countries, enter amount and convert</p>
+
+      <div class="chips" id="pairChips"></div>
+
+      <label class="lbl">Amount</label>
+      <input id="amount" type="number" min="0" value="1" class="amount">
+      <div class="chips small" id="amtChips">
+        <button class="chip" data-amt="1">1</button><button class="chip" data-amt="10">10</button>
+        <button class="chip" data-amt="100">100</button><button class="chip" data-amt="1000">1,000</button>
+        <button class="chip" data-amt="10000">10,000</button>
+      </div>
+
+      <div class="row">
+        <div class="col"><label class="lbl">From (country)</label><div class="picker" id="pickFrom"></div></div>
+        <button id="swap" class="swap" title="Swap currencies">⇄</button>
+        <div class="col"><label class="lbl">To (country)</label><div class="picker" id="pickTo"></div></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-gold" id="convertBtn">⚡ Convert</button>
+        <button class="btn btn-glass" id="copyBtn">📋 Copy</button>
+        <button class="btn btn-glass" id="resetBtn">↺ Reset</button>
+      </div>
+
+      <div class="result" id="result">
+        <div id="resLine">—</div>
+        <small id="rateLine"></small>
+      </div>
+      <div class="updated">🕒 Rates last updated: <b id="statUpdated">Loading…</b></div>
+
+      <div class="history">
+        <div class="hist-head"><b>🕘 Recent conversions</b><button id="clearHist" class="link">Clear</button></div>
+        <ul id="histList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="container section reveal" id="how">
+    <h2 class="title">How it works</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><h3>Choose countries</h3><p>Search from 190+ countries by name or currency code.</p></div>
+      <div class="step"><span>2</span><h3>Enter amount</h3><p>Type any amount or tap a quick amount button.</p></div>
+      <div class="step"><span>3</span><h3>Get result</h3><p>See the converted value and the exchange rate instantly.</p></div>
+    </div>
+  </section>
+
+  <!-- Facts -->
+  <section class="container section" id="facts">
+    <h2 class="title reveal">Important currency facts</h2>
+    <div class="grid">
+      <div class="fact reveal"><i>🥇</i><h3>Highest value</h3><p>The Kuwaiti Dinar (KWD) is the highest-valued currency per unit, followed by the Bahraini Dinar and Omani Rial.</p></div>
+      <div class="fact reveal"><i>🌍</i><h3>Reserve currency</h3><p>The US Dollar (USD) is the world's main reserve currency and is used in most international trade.</p></div>
+      <div class="fact reveal"><i>💶</i><h3>Euro zone</h3><p>The Euro (EUR) is shared by many European countries, so one currency covers many flags.</p></div>
+      <div class="fact reveal"><i>📈</i><h3>Biggest market</h3><p>The foreign exchange market is the largest financial market, trading over $7 trillion every day.</p></div>
+      <div class="fact reveal"><i>🇮🇳</i><h3>Rupee symbol</h3><p>The Indian Rupee symbol ₹ was officially adopted in 2010.</p></div>
+      <div class="fact reveal"><i>💷</i><h3>Oldest currency</h3><p>The British Pound is the oldest currency still in use, with a history of over 1,000 years.</p></div>
+      <div class="fact reveal"><i>🏔️</i><h3>Safe haven</h3><p>The Swiss Franc (CHF) is seen as a safe-haven currency during global uncertainty.</p></div>
+      <div class="fact reveal"><i>🔗</i><h3>Pegged currencies</h3><p>Gulf currencies like AED, SAR, QAR, BHD and OMR are pegged to the US Dollar.</p></div>
+      <div class="fact reveal"><i>🪙</i><h3>Shared currency</h3><p>Countries like Ecuador and El Salvador use the US Dollar as their official money.</p></div>
+      <div class="fact reveal"><i>📉</i><h3>Lowest per unit</h3><p>Currencies such as the Iranian Rial, Vietnamese Dong and Lao Kip have very small value per unit.</p></div>
+      <div class="fact reveal"><i>⏱️</i><h3>Always changing</h3><p>Exchange rates move every second based on demand, supply, interest rates and news.</p></div>
+      <div class="fact reveal"><i>🏦</i><h3>Central banks</h3><p>Central banks like the RBI, Fed and ECB influence currency strength through interest rates.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="team">
+  <div class="container fgrid">
+    <div>
+      <h3>💱 CurrencyX</h3>
+      <p>A college project that converts currencies between 190+ countries using HTML, CSS And JavaScript.</p>
+      <button class="btn btn-gold small" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
+    </div>
+    <div>
+      <h3>Project Members</h3>
+      <ul class="members">
+        <li>👨‍💻 Vanshika Mehta</li><li>👩‍💻 Sani Raj</li><li>👩‍💻 Vanshika</li><li>👩‍💻 Vivek Bairwa</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <ul><li><a href="#converter">Converter</a></li><li><a href="#how">How it works</a></li><li><a href="#facts">Currency facts</a></li></ul>
+    </div>
+    <div>
+      <h3>Tech Stack</h3>
+      <ul><li>HTML5 &amp; CSS3 animations</li><li>JavaScript + Exchange API</li><li>Flag images: flagcdn</li></ul>
+    </div>
+  </div>
+  <div class="copy">© 2026 CurrencyX Team · Rates are indicative only and not financial advice.</div>
+</footer>
+
+<!-- Chatbot -->
+<button class="chat-fab" id="chatFab" title="Chat with us">💬</button>
+<div class="chat" id="chat">
+  <div class="chat-head"><span>🤖 Currency Assistant</span><span id="chatClose" class="x">✕</span></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <div class="chat-input">
+    <input id="chatText" type="text" placeholder="Type your question..." autocomplete="off" enterkeyhint="send">
+    <button id="chatSend">Send</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="chatbot.js"></script>
+</body>
+</html>
